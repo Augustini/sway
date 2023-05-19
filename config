@@ -27,6 +27,10 @@ input * {
     xkb_options caps:escape
 }
 
+
+default_orientation horizontal
+
+
 # Font
 
 font nerdfonts:JetBrainsMono Medium 11
@@ -230,6 +234,7 @@ mode "$mode_gaps_outer" {
     bindsym $mod+w layout tabbed
     bindsym $mod+e layout toggle split
 
+
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
 
@@ -281,22 +286,25 @@ bindsym $mod+r mode "resize"
 #
 # Status Bar:
 #
+exec waybar
+
 # Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
+#bar {
+#    position top
 
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
+#    # When the status_command prints a new line to stdout, swaybar updates.
+#    # The default just shows the current date and time.
+#    status_command while date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1; done
+#    hidden_state hide 
+#    colors {
+#        statusline #ffffff
+#        background #323232
+#        inactive_workspace #32323200 #32323200 #5c5c5c
+#    }
+#}
 
 # Execute On Startup
 exec rclone mount googledrive: /home/augusto/googledrive
+exec_always autotiling
 
 include /etc/sway/config.d/*
